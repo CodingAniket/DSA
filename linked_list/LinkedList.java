@@ -75,7 +75,7 @@ public class LinkedList {
                 throw new IndexNotFoundException("Enter valid index please!");
             } else if (position == 0) {
                 prepend(data);
-            } else if (position == counter - 1) {
+            } else if (position == counter) {
                 append(data);
             } else {
                 Node newNode = new Node(data);
@@ -89,6 +89,44 @@ public class LinkedList {
         }
     }
 
+    // Remove last Method is here
+    public void RemoveLast() {
+        Node temp = head;
+        while (temp.nextNode.nextNode != null) {
+            temp = temp.nextNode;
+        }
+        temp.nextNode = null;
+        tail = temp;
+        counter--;
+    }
+
+    // Remove from begining is here
+    public void removeBegin() {
+        Node temp = head;
+        head = head.nextNode;
+        temp.nextNode = null;
+        counter--;
+    }
+
+    // Remove from postion
+    public void RemoveFromPosition(int position) {
+        try {
+            if (position > counter) {
+                throw new IndexNotFoundException("The index is not valid");
+            } else if (position == counter) {
+                RemoveLast();
+            } else if (position == 0) {
+                removeBegin();
+            } else {
+                Node temp = getNodeSingly(position);
+                temp.nextNode = temp.nextNode.nextNode;
+                counter--;
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList obj = new LinkedList();
         obj.append(0);
@@ -96,6 +134,8 @@ public class LinkedList {
         obj.append(2);
         obj.prepend(-1);
         obj.insert(2, 34);
+        obj.RemoveFromPosition(2);
         obj.PrintLinkedList();
+        System.out.println("The length of the linked list is : " + obj.counter);
     }
 }
