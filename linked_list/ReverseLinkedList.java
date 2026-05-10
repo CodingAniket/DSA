@@ -28,18 +28,19 @@ public class ReverseLinkedList {
     // TODO: IMPLEMENT YOUR SOLUTION BELOW
     // ---------------------------------------------------------
     public void reverse() {
-        if (head == null || head.next == null) return;
+        if (head == null || head.next == null)
+            return;
         Node prev = null;
         Node current = head;
         Node nextNode = null;
 
         while (current != null) {
-          nextNode=current.next;
-          current.next=prev;
-          prev=current;
-          current=nextNode;
+            nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
         }
-        head=prev;
+        head = prev;
 
     }
     // ---------------------------------------------------------
