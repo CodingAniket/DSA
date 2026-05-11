@@ -29,19 +29,20 @@ public class SwapNodesInPairs {
     // ---------------------------------------------------------
     public void swapPairs() {
         // 1. Edge case: if list has 0 or 1 node, no swap possible
-        if (head == null || head.next == null) return;
-        Node dummy=new Node(0);
-        dummy.next=head;
-        Node temp=dummy;
-        while(temp!=null && temp.next.next!=null){
-            Node first=temp.next;
-            Node second=temp.next.next;
-            first.next=second.next;
-            second.next=temp.next;
-            temp.next=second;
-            temp=first;
+        if (head == null || head.next == null)
+            return;
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node temp = dummy;
+        while (temp != null && temp.next.next != null) {
+            Node first = temp.next;
+            Node second = temp.next.next;
+            first.next = second.next;
+            second.next = temp.next;
+            temp.next = second;
+            temp = first;
         }
-        head=dummy.next;
+        head = dummy.next;
     }
     // ---------------------------------------------------------
 
