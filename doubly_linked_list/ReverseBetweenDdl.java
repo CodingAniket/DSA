@@ -51,6 +51,7 @@ public class ReverseBetweenDdl {
             temp.prev = pre;
         }
         head = dummy.next;
+        if(head!=null) head.prev=null;
     }
 
     // =========================================================================
