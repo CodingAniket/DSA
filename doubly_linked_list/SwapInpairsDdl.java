@@ -1,5 +1,5 @@
 public class SwapInpairsDdl {
-    
+
     static class Node {
         public int data;
         public Node prev;
@@ -17,7 +17,7 @@ public class SwapInpairsDdl {
     // =========================================================================
     // LOGIC TO IMPLEMENT: SWAP NODES IN PAIRS
     // =========================================================================
-    
+
     /**
      * Swaps every two adjacent nodes in the doubly linked list in-place.
      * Modifies the pointers, not just the data values inside the nodes!
@@ -27,23 +27,26 @@ public class SwapInpairsDdl {
         if (head == null || head.next == null) {
             return;
         }
-        Node dummy=new Node(0);
-        dummy.next=head;
-        head.prev=dummy;
-        Node pre=dummy;
-        while(pre.next!=null && pre.next.next!=null){
-        Node swap1=pre.next;
-        Node swap2=swap1.next;
-        swap1.next=swap2.next;
-        if(swap2.next!=null) swap2.next.prev=swap1;
-        swap2.next=pre.next;
-        if(pre.next!=null) pre.next.prev=swap2;
-        pre.next=swap2;
-        swap2.prev=pre;
-        pre=swap1;
+        Node dummy = new Node(0);
+        dummy.next = head;
+        head.prev = dummy;
+        Node pre = dummy;
+        while (pre.next != null && pre.next.next != null) {
+            Node swap1 = pre.next;
+            Node swap2 = swap1.next;
+            swap1.next = swap2.next;
+            if (swap2.next != null)
+                swap2.next.prev = swap1;
+            swap2.next = pre.next;
+            if (pre.next != null)
+                pre.next.prev = swap2;
+            pre.next = swap2;
+            swap2.prev = pre;
+            pre = swap1;
         }
-        head=dummy.next;
-        if(head!=null) head.prev=null;
+        head = dummy.next;
+        if (head != null)
+            head.prev = null;
     }
 
     // =========================================================================
@@ -82,7 +85,7 @@ public class SwapInpairsDdl {
     // =========================================================================
     public static void main(String[] args) {
         SwapInpairsDdl list = new SwapInpairsDdl();
-        
+
         // Creating sample list: 1 <-> 2 <-> 3 <-> 4 <-> 5
         list.append(1);
         list.append(2);
@@ -96,7 +99,7 @@ public class SwapInpairsDdl {
         list.swapPairs();
 
         System.out.print("After Swapping: ");
-        list.printList(); 
+        list.printList();
         // Expected outcome: 2 <-> 1 <-> 4 <-> 3 <-> 5 <-> null
     }
 }
