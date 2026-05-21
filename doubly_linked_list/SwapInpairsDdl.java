@@ -37,9 +37,8 @@ public class SwapInpairsDdl {
             swap1.next = swap2.next;
             if (swap2.next != null)
                 swap2.next.prev = swap1;
-            swap2.next = pre.next;
-            if (pre.next != null)
-                pre.next.prev = swap2;
+            swap2.next = swap1;
+            swap1.prev = swap2;
             pre.next = swap2;
             swap2.prev = pre;
             pre = swap1;
