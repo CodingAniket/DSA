@@ -35,19 +35,15 @@ public class PartitionListDdl {
         dummyNode2.next = head;
         Node temp = head;
         Node add1 = dummyNode1;
-        Node pre1 = null;
         Node add2 = dummyNode2;
-        Node pre2 = null;
         while (temp != null) {
             if (temp.data < x) {
-                pre1 = add1.prev;
                 add1.next = temp;
-                pre1 = add1;
+                temp.prev = add1;
                 add1 = add1.next;
             } else if (temp.data >= x) {
-                pre2 = add2.prev;
                 add2.next = temp;
-                pre2 = add2;
+                temp.prev = add2;
                 add2 = add2.next;
             }
             temp = temp.next;
