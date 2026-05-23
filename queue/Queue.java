@@ -61,6 +61,18 @@ public class Queue {
         return temp.data;
     }
 
+    public int queueLength() {
+        return length;
+    }
+
+    public int lastInfo() {
+        if (last == null)
+            return -1;
+        else {
+            return last.data;
+        }
+    }
+
     public static void main(String[] args) {
         Queue queue = new Queue(0);
         System.out.println("The length of Queue is: " + queue.length);
@@ -70,6 +82,5 @@ public class Queue {
         System.out.println();
         queue.deQueue();
         queue.printQueue();
-
     }
 }
