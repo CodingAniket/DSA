@@ -1,19 +1,19 @@
 import java.util.Stack; // Or your custom Stack import if it's in another file
 
 public class StackSort {
-    
+
     public static void sortStack(Stack<Integer> stack) {
-        Stack<Integer>sortedStack=new Stack<>();
-        while(!stack.isEmpty()){
-         Integer temp=stack.pop();
-         while(!sortedStack.isEmpty()&&sortedStack.peek()>temp){
-           stack.push(sortedStack.pop());
-         }
-         sortedStack.push(temp);
+        Stack<Integer> sortedStack = new Stack<>();
+        while (!stack.isEmpty()) {
+            Integer temp = stack.pop();
+            while (!sortedStack.isEmpty() && sortedStack.peek() > temp) {
+                stack.push(sortedStack.pop());
+            }
+            sortedStack.push(temp);
         }
-         while(!sortedStack.isEmpty()){
+        while (!sortedStack.isEmpty()) {
             stack.push(sortedStack.pop());
-         }
+        }
     }
 
     public static void main(String[] args) {
@@ -30,9 +30,9 @@ public class StackSort {
         stack = new Stack<>();
         sortStack(stack);
         System.out.println("Expected (top to bottom): empty");
-        // Note: If using java.util.Stack, use System.out.println(stack); 
+        // Note: If using java.util.Stack, use System.out.println(stack);
         // If using your custom Stack, use stack.printStack();
-        System.out.println(stack.isEmpty() ? "empty" : stack); 
+        System.out.println(stack.isEmpty() ? "empty" : stack);
         System.out.println();
 
         // Test 2: Single element
